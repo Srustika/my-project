@@ -33,10 +33,15 @@ jobs:
     - name: build grandle
       run: ./gradlew build
     
-    - name: build and push docker image
-      uses: mr-smithers-excellent/docker-build-push@v5
-      with:
-       image: srustika/my-repo
-       registry: docker.io
-       username: ${{ secrets.DOCKER_USERNAME }}
-       password: ${{ secrets.DOCKER_PASSWORD }}
+  publish:
+      need: build
+        - name: build and push docker image
+          uses: mr-smithers-excellent/docker-build-push@v5
+          with:
+           image: srustika/my-repo
+           registry: docker.io
+           username: ${{ secrets.DOCKER_USERNAME }}
+           password: ${{ secrets.DOCKER_PASSWORD }}
+
+    
+      
