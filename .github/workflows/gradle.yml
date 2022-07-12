@@ -28,8 +28,8 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+    - name: grant grandle permission
       run: chmod +x gradlew
-      with:
-        arguments: build
+    - name: build grandle
+      run: ./gradlew build
+      
