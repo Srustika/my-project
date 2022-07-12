@@ -36,6 +36,3 @@ jobs:
     - name: build grandle
       run: ./gradlew build
       
-  publish:
-     needs: build
-    
